@@ -8,7 +8,8 @@ import javax.swing.*;
 import java.lang.Number;
 
 public class TrainingRecordGUI extends JFrame implements ActionListener {
-
+    
+private JButton findAllByDate= new JButton("Find All By Date");
     private JTextField name = new JTextField(30);
     private JTextField day = new JTextField(2);
     private JTextField month = new JTextField(2);
@@ -38,6 +39,7 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
 
     // set up the GUI 
     public TrainingRecordGUI() {
+        
         super("Training Record");
         setLayout(new FlowLayout());
         add(labn);
@@ -73,7 +75,9 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         setSize(720, 200);
         setVisible(true);
         blankDisplay();
-
+add(findAllByDate);
+        findAllByDate.addActionListener(this);
+        add(outputArea);
         // To save typing in new entries while testing, uncomment
         // the following lines (or add your own test cases)
         
@@ -88,10 +92,16 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         if (event.getSource() == lookUpByDate) {
             message = lookupEntry();
         }
+        if (event.getSource() == findAllByDate) {
+            message = findAllByDate();
+        }
         outputArea.setText(message);
         blankDisplay();
     } // actionPerformed
-
+public String findAllByDate() {
+    String message = "Not implemented yet";
+    return message ;
+}
     public String addEntry(String what) {
         String message = "Record added\n";
         System.out.println("Adding "+what+" entry to the records");
